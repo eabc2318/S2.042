@@ -68,7 +68,7 @@ CREATE TABLE UtilisationMachine(
 
 CREATE TABLE Boisson(
    id_boisson NUMBER(10),
-   nom_boisson VARCHAR2(10),
+   nom_boisson VARCHAR2(20),
    type_boisson VARCHAR2(10),
    PRIMARY KEY(id_boisson)
 );
