@@ -1,0 +1,106 @@
+import random
+import os
+
+# --- 1. LORE EXACT DU SUJET ---
+# Grades, rangs, titres et dignités exacts du sujet
+grades = ["Affilie", "Sympathisant", "Adherent", "Chevalier / Dame", "Grand Chevalier", "Commandeur", "Grand Croix"]
+rangs = ["Novice", "Compagnon"]
+titres = ["Philanthrope", "Protecteur", "Honorable"]
+dignites = ["Maitre", "Grand Chancelier", "Grand Maitre"]
+
+# Aliments et ingrédients (adaptés à la taille de tes VARCHAR2)
+aliments = ["tenders de poulet frits", "viande a kebab", "pizza", "quiche", "saumon", "ananas", "beurre", "legume","frommage","poivron","patate","salade","farine","viande","huile","sucre","curry","citron","tomates","bananes","ogniong","pomme","courgette","aubergine"]
+ingredients = ["mayonnaise", "sauce blanche", "moutarde", "ketchup", "beurre"]
+
+# Machines (raccourcies pour respecter ton VARCHAR2(25) dans la table Machine)
+machines = ["lampe a raclette", "combine multifonction", "appareil bon marche"]
+
+# Noms des enseignants pour faire un clin d'oeil qualitatif
+noms = ["Martin Nevot", "Nedjar", "Hitier", "Agostinelli", "Morancey"]
+prenoms = ["Mickael", "Sebastien", "Sylvain", "Laurence", "Morgan","Aureille","Mathiassse","Adame","Youyounes","Moisaucisse","Mathieu","Jean","Patrick","Rodolphe","Leo","Enzo","Steve","Lee","Lisa","Julie","Emma","Maeva","Ambrine","Donald","Mickey","Jules","Evan","Charlotte","Table_Basse"]
+
+def generer_extension(nb_membres):
+    bureau = os.path.join(os.environ['USERPROFILE'], 'Desktop')
+    filename = os.path.join(bureau, "s52_extension_tenrac.sql")
+    
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write("-- Script de creation de l'extension (Jeu de donnees)\n")
+        f.write("-- Genere pour le projet S2-Projet V1.3.0\n\n")
+
+        # --- 2. DONNÉES DE BASE (Tables Parents) ---
+        f.write("-- Insertion des Grades\n")
+        for i, g in enumerate(grades, 1):
+            f.write(f"INSERT INTO Grade (id_grade, nom_grade) VALUES ({i}, '{g}');\n")
+
+        f.write("\n-- Insertion des Aliments et Ingrédients\n")
+        for i, a in enumerate(aliments, 1):
+            f.write(f"INSERT INTO Aliment (id_aliment, nom_aliment) VALUES ({i}, '{a}');\n")
+        for i, ing in enumerate(ingredients, 1):
+            f.write(f"INSERT INTO Ingredient (id_ingredient, nom_ingredient) VALUES ({i}, '{ing}');\n")
+
+        f.write("\n-- Insertion des Machines et d'un Entretien\n")
+        for i, m in enumerate(machines, 1):
+            f.write(f"INSERT INTO Machine (id_machine, nom_machine, modele_machine_) VALUES ({i}, '{m}', 'Modele {i}');\n")
+        
+        # L'entretien est obligatoire pour lier un Tenrac
+        f.write("INSERT INTO Entretien (id_entretien, date_entretien, type_entretien, id_machine) VALUES (1, CURRENT_TIMESTAMP, 'Annuel', 1);\n\n")
+
+        # --- 3. GÉNÉRATION MASSIVE DES MEMBRES ---
+        print(f"Génération de {nb_membres} tuples en cours sur le Bureau...")
+        
+        # Compteurs pour garantir l'unicité des PK (Primary Keys)
+        id_rang, id_titre, id_dignite, id_club, id_ordre, id_orga = 1, 1, 1, 1, 1, 1
+        
+        for i in range(1, nb_membres + 1):
+            nom = random.choice(noms)
+            prenom = random.choice(prenoms)
+            
+            # Utilisation de l'index 'i' pour garantir le UNIQUE(courriel) et UNIQUE(telephone) de ton MCD
+            mail = f"{prenom.lower()}.{nom.replace(' ', '').lower()}{i}@univ-amu.fr"
+            tel = f"06{str(i).zfill(8)}" 
+            
+            lon, lat = round(random.uniform(5.0, 6.0), 4), round(random.uniform(43.0, 44.0), 4)
+            id_grade = random.randint(1, len(grades))
+            
+            # Insertion du Tenrac
+            f.write(f"INSERT INTO Tenrac (id_tenrac, nom, prenom, courriel, telephone, adresse_postale, id_grade, id_entretien) "
+                    f"VALUES ({i}, '{nom}', '{prenom}', '{mail}', '{tel}', "
+                    f"SDO_GEOMETRY(2001, 8307, SDO_POINT_TYPE({lon}, {lat}, NULL), NULL, NULL), "
+                    f"{id_grade}, 1);\n")
+
+            # Organisme obligatoire selon le sujet ("dont les raisons sociales... sont connus")
+            siret = random.randint(1000000000, 9999999999) # 10 chiffres max pour ton NUMBER(10)
+            f.write(f"INSERT INTO Organisme (id_organisme, raison_sociale, siret, id_tenrac) VALUES ({id_orga}, 'Orga-{i}', {siret}, {i});\n")
+            id_orga += 1
+
+            # --- TITRES HONORIFIQUES (OPTIONNELS) ---
+            if random.random() < 0.4:
+                r = random.choice(rangs)
+                f.write(f"INSERT INTO Rang (id_rang, nom_rang, id_tenrac) VALUES ({id_rang}, '{r}', {i});\n")
+                id_rang += 1
+
+            if random.random() < 0.3:
+                t = random.choice(titres)
+                f.write(f"INSERT INTO Titre (id_titre, nom_titre, id_tenrac) VALUES ({id_titre}, '{t}', {i});\n")
+                id_titre += 1
+                
+            if random.random() < 0.2:
+                d = random.choice(dignites)
+                f.write(f"INSERT INTO Dignite (id_dignite, nom_dignite, id_tenrac) VALUES ({id_dignite}, '{d}', {i});\n")
+                id_dignite += 1
+
+            # --- APPARTENANCE (Club OU Ordre) ---
+            # "Un tenrac peut soit adhérer à l'un des clubs tenrac soit directement à l'Ordre"
+            if random.random() < 0.8:
+                f.write(f"INSERT INTO TenracClub (id_club, id_tenrac) VALUES ({id_club}, {i});\n")
+                id_club += 1
+            else:
+                f.write(f"INSERT INTO TenracOrdre (id_ordre, id_tenrac) VALUES ({id_ordre}, {i});\n")
+                id_ordre += 1
+
+            f.write("\n")
+
+    print(f"Succès ! Fichier généré : {filename}")
+
+# Modifie ce nombre (ex: 1000000) pour atteindre le volume massif exigé par le barème.
+generer_extension(1000)
