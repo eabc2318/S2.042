@@ -36,7 +36,7 @@ CREATE TABLE Allergenes(
 );
 
 CREATE TABLE UtilisationMachine(
-   id_utilisationmachine VARCHAR2(10),
+   id_utilisationmachine VARCHAR2(30),
    date_utilisation TIMESTAMP,
    duree NUMBER(10),
    temperature NUMBER(5,1),
