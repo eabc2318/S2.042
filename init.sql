@@ -234,7 +234,7 @@ CREATE TABLE ParticipeA(
    id_reunion NUMBER(10),
    CONSTRAINT pk_ParticipeA PRIMARY KEY(id_tenrac, id_reunion),
    CONSTRAINT fk_ParticipeA FOREIGN KEY(id_tenrac) REFERENCES Tenrac(id_tenrac),
-   CONSTRAINT fk_ParticipeA FOREIGN KEY(id_reunion) REFERENCES Reunion(id_reunion)
+   CONSTRAINT fk_ParticipeA_2 FOREIGN KEY(id_reunion) REFERENCES Reunion(id_reunion)
 );
 
 CREATE TABLE AccompagneDe(
@@ -302,10 +302,35 @@ BEGIN
   SELECT COUNT(*) INTO nbGradeRequire
   FROM Grade
   WHERE nom_grade = 'Chevalier'
-  AND nom_grade = 'Dame'
-  
+  OR nom_grade = 'Dame';
+
   IF nbGradeRequire = 0 THEN
-    RAISE_APPLICATION_ERROR(-2001, "Il n'y a pas ni de Chevalier ni de Dame dans la Reunion")
+    RAISE_APPLICATION_ERROR(-20001, 'Il n''y a pas ni de Chevalier ni de Dame dans la Reunion.');
+  END IF;
+END;
+/
+
+CREATE OR REPLACE TRIGGER digniteMin
+BEFORE INSERT ON Machine
+FOR EACH ROW
+DECLARE
+  nbDignite NUMBER;
+  nbMaitre  NUMBER;
+BEGIN
+  -- Si la table Dignite est encore vide (chargement initial), on laisse passer
+  SELECT COUNT(*) INTO nbDignite FROM Dignite;
+  
+  IF nbDignite = 0 THEN
+    RETURN;
+  END IF;
+
+  -- Sinon, on vérifie qu'il existe au moins un Maitre
+  SELECT COUNT(*) INTO nbMaitre
+  FROM Dignite
+  WHERE nom_dignite = 'Maitre';
+
+  IF nbMaitre = 0 THEN
+    RAISE_APPLICATION_ERROR(-20002, 'Il faut une Dignite au minimum Maitre.');
   END IF;
 END;
 /
