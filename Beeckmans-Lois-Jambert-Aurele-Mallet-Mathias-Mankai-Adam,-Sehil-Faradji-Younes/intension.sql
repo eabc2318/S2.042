@@ -207,8 +207,7 @@ CREATE TABLE Dignite(
 CREATE TABLE TenracClub(
    id_club NUMBER(10),
    id_tenrac NUMBER(10) NOT NULL,
-   CONSTRAINT pk_tenracClub PRIMARY KEY(id_club),
-   CONSTRAINT u_tenracClub UNIQUE(id_tenrac),
+   CONSTRAINT pk_tenracClub PRIMARY KEY(id_club, id_tenrac),
    CONSTRAINT fk_tenracClub FOREIGN KEY(id_tenrac) REFERENCES Tenrac(id_tenrac)
 );
 
