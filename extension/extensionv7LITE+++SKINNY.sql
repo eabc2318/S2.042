@@ -1,5 +1,3 @@
--- Script d'extension Tenrac avec Plats de Qualité réutilisés et Légumes botaniques
-
 -- TABLE Grade
 INSERT INTO Grade VALUES (1, 'Affilie');
 INSERT INTO Grade VALUES (2, 'Sympathisant');
