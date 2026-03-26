@@ -297,7 +297,7 @@ CREATE OR REPLACE TRIGGER gradePass
 BEFORE INSERT ON Reunion
 FOR EACH ROW
 DECLARE
-  nbGradeRequire NOMBER;
+  nbGradeRequire NUMBER;
 BEGIN
   SELECT COUNT(*) INTO nbGradeRequire
   FROM Grade
