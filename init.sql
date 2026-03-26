@@ -317,14 +317,12 @@ DECLARE
   nbDignite NUMBER;
   nbMaitre  NUMBER;
 BEGIN
-  -- Si la table Dignite est encore vide (chargement initial), on laisse passer
   SELECT COUNT(*) INTO nbDignite FROM Dignite;
   
   IF nbDignite = 0 THEN
     RETURN;
   END IF;
 
-  -- Sinon, on vérifie qu'il existe au moins un Maitre
   SELECT COUNT(*) INTO nbMaitre
   FROM Dignite
   WHERE nom_dignite = 'Maitre';
