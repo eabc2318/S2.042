@@ -1,0 +1,201 @@
+id_repas,Intitule_repas,id_plat,id_boisson
+1,Reunion 1,3,21
+2,Repas Gala 2,6,22
+3,Repas Max 3,11,10
+4,Festin 4,3,28
+5,Festin 5,2,28
+6,Repas Max 6,7,12
+7,Diner 7,16,30
+8,Cene 8,14,6
+9,Banquet 9,1,28
+10,Banquet 10,1,23
+11,Degustation 11,11,7
+12,Festin 12,7,29
+13,Festin 13,2,9
+14,Repas Max 14,11,9
+15,Diner 15,15,15
+16,Repas Gala 16,15,12
+17,Cene 17,15,30
+18,Banquet 18,6,3
+19,Degustation 19,5,10
+20,Banquet 20,7,4
+21,Repas Max 21,3,14
+22,Repas Max 22,15,21
+23,Diner 23,1,28
+24,Cene 24,1,7
+25,Banquet 25,12,12
+26,Soiree 26,7,11
+27,Reunion 27,1,20
+28,Diner 28,13,7
+29,Soiree 29,4,21
+30,Cene 30,13,7
+31,Banquet 31,8,19
+32,Repas Gala 32,5,30
+33,Repas Max 33,6,30
+34,Banquet 34,3,17
+35,Reunion 35,16,19
+36,Cene 36,16,13
+37,Diner 37,12,21
+38,Repas Gala 38,9,19
+39,Diner 39,16,17
+40,Reunion 40,13,24
+41,Repas Gala 41,7,17
+42,Repas Gala 42,10,13
+43,Reunion 43,13,12
+44,Cene 44,12,16
+45,Diner 45,2,1
+46,Cene 46,14,5
+47,Cene 47,8,13
+48,Repas Gala 48,6,10
+49,Diner 49,15,8
+50,Repas Gala 50,10,20
+51,Repas Gala 51,13,25
+52,Banquet 52,11,15
+53,Soiree 53,13,19
+54,Repas Gala 54,14,21
+55,Festin 55,8,29
+56,Reunion 56,10,7
+57,Soiree 57,12,3
+58,Degustation 58,5,2
+59,Degustation 59,11,16
+60,Repas Gala 60,1,7
+61,Soiree 61,1,3
+62,Reunion 62,2,29
+63,Diner 63,11,12
+64,Banquet 64,11,30
+65,Cene 65,13,20
+66,Repas Gala 66,13,2
+67,Festin 67,5,16
+68,Reunion 68,7,4
+69,Festin 69,1,12
+70,Reunion 70,3,25
+71,Festin 71,1,12
+72,Degustation 72,5,23
+73,Degustation 73,2,29
+74,Repas Max 74,12,18
+75,Soiree 75,5,16
+76,Reunion 76,15,8
+77,Reunion 77,13,19
+78,Cene 78,13,21
+79,Degustation 79,12,20
+80,Repas Gala 80,6,26
+81,Repas Max 81,5,26
+82,Soiree 82,1,26
+83,Repas Gala 83,15,23
+84,Repas Gala 84,5,4
+85,Festin 85,3,28
+86,Repas Gala 86,5,30
+87,Cene 87,12,2
+88,Festin 88,12,17
+89,Cene 89,11,29
+90,Cene 90,3,4
+91,Banquet 91,7,28
+92,Degustation 92,4,1
+93,Festin 93,3,9
+94,Degustation 94,1,13
+95,Festin 95,13,5
+96,Reunion 96,15,9
+97,Soiree 97,3,14
+98,Reunion 98,9,7
+99,Banquet 99,9,29
+100,Festin 100,14,18
+101,Degustation 101,16,26
+102,Reunion 102,8,18
+103,Reunion 103,6,4
+104,Diner 104,10,7
+105,Soiree 105,16,8
+106,Cene 106,14,18
+107,Reunion 107,11,20
+108,Degustation 108,16,12
+109,Diner 109,8,24
+110,Repas Gala 110,5,7
+111,Repas Max 111,4,7
+112,Repas Gala 112,1,18
+113,Banquet 113,13,17
+114,Festin 114,1,4
+115,Diner 115,11,14
+116,Banquet 116,8,17
+117,Cene 117,1,2
+118,Reunion 118,9,6
+119,Repas Gala 119,1,26
+120,Cene 120,6,14
+121,Cene 121,6,6
+122,Festin 122,6,5
+123,Degustation 123,1,10
+124,Festin 124,7,17
+125,Diner 125,16,13
+126,Reunion 126,14,19
+127,Repas Max 127,1,23
+128,Diner 128,7,21
+129,Reunion 129,10,21
+130,Soiree 130,4,4
+131,Diner 131,11,4
+132,Repas Gala 132,3,10
+133,Festin 133,1,11
+134,Banquet 134,3,5
+135,Reunion 135,11,22
+136,Cene 136,12,8
+137,Banquet 137,16,12
+138,Cene 138,13,15
+139,Diner 139,11,24
+140,Degustation 140,12,22
+141,Cene 141,10,8
+142,Banquet 142,3,28
+143,Soiree 143,5,16
+144,Banquet 144,12,17
+145,Festin 145,11,26
+146,Festin 146,4,24
+147,Repas Gala 147,15,16
+148,Degustation 148,7,13
+149,Festin 149,14,12
+150,Soiree 150,1,19
+151,Repas Max 151,13,24
+152,Degustation 152,4,21
+153,Reunion 153,12,5
+154,Banquet 154,16,3
+155,Cene 155,1,26
+156,Cene 156,5,16
+157,Repas Gala 157,14,6
+158,Festin 158,7,29
+159,Repas Gala 159,14,2
+160,Diner 160,13,2
+161,Festin 161,3,16
+162,Soiree 162,5,16
+163,Soiree 163,16,15
+164,Diner 164,7,15
+165,Reunion 165,6,26
+166,Festin 166,12,13
+167,Festin 167,8,17
+168,Repas Gala 168,10,6
+169,Repas Max 169,12,10
+170,Degustation 170,7,23
+171,Reunion 171,7,13
+172,Reunion 172,14,20
+173,Repas Max 173,16,16
+174,Reunion 174,11,15
+175,Diner 175,4,7
+176,Soiree 176,8,29
+177,Reunion 177,2,1
+178,Diner 178,16,9
+179,Diner 179,14,23
+180,Banquet 180,5,25
+181,Diner 181,11,15
+182,Festin 182,10,9
+183,Soiree 183,1,13
+184,Repas Gala 184,6,28
+185,Reunion 185,16,1
+186,Cene 186,12,11
+187,Repas Gala 187,2,16
+188,Repas Gala 188,4,17
+189,Repas Max 189,1,5
+190,Banquet 190,12,12
+191,Diner 191,5,11
+192,Degustation 192,12,13
+193,Reunion 193,5,23
+194,Banquet 194,8,29
+195,Soiree 195,2,27
+196,Repas Gala 196,7,18
+197,Banquet 197,2,14
+198,Cene 198,9,11
+199,Festin 199,12,2
+200,Repas Max 200,14,23

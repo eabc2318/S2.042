@@ -1,0 +1,31 @@
+id_boisson,nom_boisson,type_boisson
+1,Eau,Sans
+2,Biere,Alcool
+3,Vin Rouge,Alcool
+4,Ice Tea,Sans
+5,Potion,Sans
+6,Hydromel,Alcool
+7,Jus Pomme,Sans
+8,Vin Blanc,Alcool
+9,Champagne,Alcool
+10,Cafe,Sans
+11,The Vert,Sans
+12,Limonade,Sans
+13,Whisky,Alcool
+14,Rhum,Alcool
+15,Vodka,Alcool
+16,Gin,Alcool
+17,Cidre,Alcool
+18,Margarita,Alcool
+19,Mojito,Alcool
+20,Sangria,Alcool
+21,Lait,Sans
+22,Jus dOrange,Sans
+23,Soda,Sans
+24,Chocolat Chaud,Sans
+25,Kombucha,Sans
+26,Sirop de Menthe,Sans
+27,Smoothie,Sans
+28,Espresso Martini,Alcool
+29,Pastis,Alcool
+30,Sake,Alcool
